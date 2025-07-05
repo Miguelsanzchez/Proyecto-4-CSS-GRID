@@ -1,0 +1,131 @@
+:root {
+  --primary-color: rgb(236, 236, 236);
+  --secondary-color: rgb(21, 21, 21);
+  --blue-color: #2bc5cd;
+  --orange-color: #ff693d;
+  --border: 2px solid var(--blue-color);
+  --spacing: 28px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    'header school student'
+    'header main time'
+    'alumni footer footer';
+  gap: 1em;
+  min-height: 100vh;
+  padding: 1em;
+  box-sizing: border-box;
+}
+
+header {
+  grid-area: header;
+  background-color: var(--blue-color);
+  color: white;
+  padding: 2rem;
+  display: grid;
+  align-content: center;
+  text-align: center;
+}
+
+.school {
+  grid-area: school;
+  background: url('https://images03.nicepage.com/c461c07a441a5d220e8feb1a/d8ce469044b958508f4bdbab/blueschoolbackpackwithessentialsupplies_232148207678.jpg')
+    center/cover;
+}
+
+.student {
+  grid-area: student;
+  background: url('https://images03.nicepage.com/c461c07a441a5d220e8feb1a/9e4ce16148dd5cbeb1065410/89f80abe-6acd-d8dc-a341-3e571206975b.jpg')
+    center/cover;
+}
+
+main {
+  grid-area: main;
+  display: grid;
+  border: var(--border);
+  color: var(--blue-color);
+  text-align: center;
+  align-items: center;
+}
+
+.time {
+  grid-area: time;
+  background: url('https://images03.nicepage.com/c461c07a441a5d220e8feb1a/773a5aa425b1502aaac14708/f2b45624-c8f6-3aa0-0ee4-58adda3c89b0.jpg')
+    center/cover;
+}
+
+.alumni {
+  grid-area: alumni;
+  background: url('https://images03.nicepage.com/c461c07a441a5d220e8feb1a/89993ff69c3e5244ad2bf1ba/blondestudentgirlissmilingholdingfoldernotebookherhandsuniversitybackground_101969664.jpg');
+}
+
+footer {
+  grid-area: footer;
+  background-color: var(--orange-color);
+  color: white;
+  padding: 2rem;
+  display: grid;
+  align-content: center;
+  text-align: center;
+}
+
+button {
+  width: fit-content;
+  background: transparent;
+  justify-self: center;
+  color: rgb(29, 27, 27);
+  border: 1px solid white;
+  padding: 0.5em 1em;
+  margin-top: 1em;
+  cursor: pointer;
+  background-color: white;
+}
+
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      'header'
+      'school'
+      'student'
+      'main'
+      'time'
+      'alumni'
+      'footer';
+  }
+  footer p {
+    font-size: 1em;
+  }
+  header,
+  main,
+  footer {
+    text-align: center;
+    padding: 1rem;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-transform: uppercase;
+  }
+
+  .school,
+  .student,
+  .time,
+  .alumni {
+    min-height: 200px;
+  }
+}
